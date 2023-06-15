@@ -12,6 +12,8 @@ eureka:
 spring:
   application:
     name: gateway-service
+  config:
+    import: optional:configserver:http://{CONFIG_SERVER_USERNAME:config}:{CONFIG_SERVER_PASSWORD:config}@configserver:8080
   cloud:
     gateway:
       routes:
