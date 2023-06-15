@@ -14,7 +14,10 @@ spring:
     name: gateway-service
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      routes:
+        - id: bff
+          uri: lb://bff
+          predicates:
+            - Path=/bff/**
+          filters:
+            - StripPrefix=1
